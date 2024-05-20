@@ -7,12 +7,12 @@
         "title": "Welcome to my Portfolio Webpage"
     },
     "landing": {
-        "title": "Welcome 👋"
+        "title": "Welcome to my Portfolio Webpage"
     },
-    "loader" : {
+    "loader": {
         "text": "loading..."
     },
-    "dashboard" : {
+    "dashboard": {
         "error": "Error loading data"
     },
     "login": {
