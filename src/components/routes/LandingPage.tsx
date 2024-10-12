@@ -14,7 +14,8 @@ const LandingPage = () => {
     <Wrapper>
       <WaveLanding />
       <ContentWrapper>
-        <Title>{t('landing.title')}</Title>
+        {/* <Title>{t('landing.title')}</Title> */}
+        <Title>Sebastian Aliaga - CMS Specialist & Sitecore XM Cloud Certified</Title>
       </ContentWrapper>
       <LottieWrapper>
         <Lottie animationData={animationData} loop={true} />

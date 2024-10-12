@@ -5,7 +5,7 @@ import { AboutMe } from '../../model/aboutme';
 import { themes } from '../../styles/ColorStyles';
 import AboutMeCardRow from './AboutMeCardRow';
 
-import avatarCard from './Avatar.jpg';
+import avatarCard from './SebasAB.jpg';
 
 interface AboutMeCardProps {
   aboutMe: AboutMe;
@@ -36,7 +36,11 @@ const AboutMeCard = (props: AboutMeCardProps) => {
             <AboutMeCardRow title={t('aboutMeCard.occupation')} value={props.aboutMe.job} />
           )}
           {props.aboutMe.github && (
-            <AboutMeCardRow title={t('aboutMeCard.github')} value={props.aboutMe.github} />
+            <AboutMeCardRow
+              title={t('aboutMeCard.github')}
+              value={props.aboutMe.github}
+              isLink={true}
+            />
           )}
         </InfoSection>
       </InfoWrapper>

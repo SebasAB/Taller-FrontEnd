@@ -1,10 +1,11 @@
 import { AboutMe } from '../model/aboutme';
 import { Project } from '../model/project';
 
+// Existing mock login function
 export const mockLogin = (userName: string, password: string) =>
   new Promise<TokenResponse>(function (resolve, rejected) {
     setTimeout(() => {
-      if (userName === 'user@threepoints.com' && password === 'patata') {
+      if (userName === 'sebas@email.com' && password === 'sebasdev') {
         resolve(
           JSON.parse(
             `{"token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxODg0YmJiM2Q0YTRkNDk1ZDYyNGJhYyIsImVtYWlsIjoibHVjYXNmZXJuYW5kZXphcmFnb25AZ21haWwuY29tIiwiaWF0IjoxNjM2MzIyMzA3LCJleHAiOjE2MzYzMjU5MDd9.yxy7uKWXJx5rY8znRBTg5182llyH8Rs9R8C6_SM4LIg" }`
@@ -28,6 +29,18 @@ export interface DashboardInfo {
   projects: Project[];
 }
 
+// Mock function to print the project form data
+export const submitProjectData = (project: Partial<Project>) => {
+  console.log('Project Data Submitted:', project);
+  // Simulate API response
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve({ success: true });
+    }, 1000);
+  });
+};
+
+// Other existing mock functions
 export const mockFetchDashboard = () =>
   Promise.all([mockAboutme(), mockProjects()]).then(([aboutMe, projects]) => {
     return {
@@ -43,11 +56,11 @@ export const mockAboutme = () =>
         JSON.parse(
           `{
             "id":"12389asdfasf8",
-            "name":"Lucas Fernández Aragón",
-            "birthday":765817712000,
-            "nationality":"Spain",
-            "job":"Red Hat",
-            "github":"https://github.com/lucferbux"
+            "name":"Sebastian Aliaga",
+            "birthday":950331600000,
+            "nationality":"Ecuador",
+            "job":"Associate Engineer - Verndale",
+            "github":"https://github.com/sebasab"
             }`
         )
       );
@@ -60,79 +73,44 @@ export const mockProjects = () =>
       resolve(
         JSON.parse(
           `[
-                {
-                "id":"12349as8df90",
-                "title":"React",
-                "description":"React es el Framework web basado en componentes de Facebook. Cuenta con una curva de aprendizaje corta y mucha flexibilidad",
-                "version":"17.0.1",
-                "link":"https://reactjs.org/docs/hello-world.html",
-                "tag":"JavaScript, Typescript, React",
-                "timestamp":"765817712000"
-                },
-                {
-                "id":"789asdfas89",
-                "title":"Vite",
-                "description":"Toolchain para la creación de proyectos basados en React, contiene lo báisco para crear proyectos basados en single-page apps",
-                "version":"4.0.3",
-                "link":"https://vitejs.dev",
-                "tag":"Toolchain, React, Bootstraping",
-                "timestamp":"765817712001"
-                },
-                {
-                "id":"56765asdfasdf8",
-                "title":"Styled components",
-                "description":"Librería que permite usar template literals y css para crear estilos en componente con JavaScript",
-                "version":"5.2.1",
-                "link":"https://styled-components.com/docs",
-                "tag":"CSS, JavaScript, Babel",
-                "timestamp":"765817712002"
-                },
-                {
-                "id":"56765asdfasdf8",
-                "title":"React i18next",
-                "description":"Internacionalización de nuestro proyecto en React.",
-                "version":"19.9.2",
-                "link":"https://react.i18next.com",
-                "tag":"JavaScript, i18n, React",
-                "timestamp":"765817712003"
-                },
-                {
-                "id":"25634iuoasdf8",
-                "title":"React Lottie",
-                "description":"Animaciones en alta calidad que cuentan con distintos tipos de reproducción.",
-                "version":"1.2.3",
-                "link":"https://airbnb.design/lottie/",
-                "tag":"Animation, React, Aribnb",
-                "timestamp":"765817712004"
-                },
-                {
-                "id":"7890asdf890",
-                "title":"React Router",
-                "description":"Navegación entre páginas dentro de nuestra web app.",
-                "version":"5.2.0",
-                "link":"https://reactrouter.com/web/guides/quick-start",
-                "tag":"Navigation, routing",
-                "timestamp":"765817712005"
-                },
-                {
-                "id":"7890asdf890",
-                "title":"Swagger",
-                "description":"Herramienta para creación de especificaciones OpenAPI",
-                "version":"3.0,2",
-                "link":"https://swagger.io",
-                "tag":"API, OpenAPI",
-                "timestamp":"765817712006"
-                },
-                {
-                "id":"7890asdf890",
-                "title":"Figma",
-                "description":"Herramienta de diseño vectorial y prototipado",
-                "version":"-",
-                "link":"https://www.figma.com/proto/3e43h8TrzwpjfKwXvFxZoP/Taller?page-id=144%3A51&node-id=308%3A1187&viewport=254%2C48%2C0.12&scaling=min-zoom&starting-point-node-id=147%3A3",
-                "tag":"Vector, UX, UI",
-                "timestamp":"765817712007"
-                }
-            ]`
+              {
+                "id": "airmouse_123",
+                "title": "Airmouse Project",
+                "description": "Airmouse is a real-time mouse control system using a smartphone's accelerometer sensor. Data is captured using Python and connected via Bluetooth through Realterm.",
+                "version": "1.0",
+                "link": "https://github.com/SebasAB/AirMouse-Project",
+                "tag": "Python, Bluetooth, Realterm, Accelerometer",
+                "timestamp": "765817712000"
+              },
+              {
+                "id": "py_dashboard_456",
+                "title": "Python Dashboard",
+                "description": "A real-time dashboard connected to a DHT-22 sensor, retrieving live temperature and humidity values. Built using Python.",
+                "version": "1.0",
+                "link": "https://github.com/SebasAB/Python-Dashboard",
+                "tag": "Python, DHT-22, Sensor, Dashboard",
+                "timestamp": "765817712000"
+              },
+              {
+                "id": "zizumania_789",
+                "title": "Zizumania",
+                "description": "Zizumania is a 2D platformer game built using Unity, featuring classic platforming mechanics in a colorful and engaging world.",
+                "version": "1.0",
+                "link": "https://github.com/SebasAB/ZizuMania",
+                "tag": "Unity, Game Development, 2D Platformer",
+                "timestamp": "765817712000"
+              },
+              {
+                "id": "constellation_101",
+                "title": "Constellation4Sitecore",
+                "description": "Constellation4Sitecore is a library designed to assist developers working with Sitecore XM Cloud and Next.js. It provides npm modules that simplify the development.",
+                "version": "22.1.1",
+                "link": "https://github.com/constellation4sitecore/xmcloud-constellation",
+                "tag": "Sitecore XM Cloud, Next.js, JavaScript, npm",
+                "timestamp": "765817712000"
+              }
+            ]
+            `
         )
       );
     }, 500);
